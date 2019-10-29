@@ -1,0 +1,329 @@
+#content-container {
+    position: relative;
+    background-color: aquamarine;
+}
+
+#toolbar {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    /* background-color: magenta; */
+}
+
+.status {
+    position: relative;
+    padding: 10px;
+    /* box-shadow: 2px 2px 2px 2px black; */
+    background: dodgerblue;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.pull-right {
+    position: absolute;
+    right: 1%;
+}
+
+.pull-top {
+    position: absolute;
+    top: 0;
+}
+
+#controls {
+    /* background-color: white; */
+}
+
+.controlButtons {
+    border: none;
+    height: 30px;
+    widows: 30px;;
+    background: dodgerblue;
+    /* box-shadow: 2px 2px 2px 2px black; */
+    color: white;
+}
+
+#play, #resume {
+    border: solid 1px black;
+    box-shadow: 2px 3px;
+    background-color: dodgerblue;
+    border-radius: 50px;
+    color: black;
+    margin-top: 50px;
+    height: 100px;
+    width: 200px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.terminateButtons {
+    border: solid 1px black;
+    box-shadow: 2px 3px;
+    background-color: dodgerblue;
+    border-radius: 50px;
+    color: black;
+    margin-top: 20px;
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#gameOver {
+    color: white;
+    font-size: 50px;
+}
+
+#restart {
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+}
+
+#tileContainer {
+}
+
+#game-container {
+    margin: 0 auto;
+    text-align: center;
+    height: 100vh;
+    background-color: aquamarine;
+}
+
+.tiles {
+    border: black 2px solid;
+    background-color: dodgerblue;
+    border-radius: 5px; 
+    margin-left: 1px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 600px) {
+    #game-container {
+        height: 320px;
+        width: 260;
+    }
+
+    .tileRows {
+        height: 36px;
+    }
+    
+    .tiles {
+        width:35px; 
+        height:35px;
+    }
+} 
+
+@media only screen and (min-width: 600px) {
+    #game-container {
+        height: 430px;
+        width: 360px;
+    }
+
+    .tileRows {
+        height: 51px;
+    }
+    
+    .tiles {
+        width:50px; 
+        height:50px;
+    }
+}
+
+.flip-transform {
+    transform: rotateX(180deg);
+}
+
+.targetTiles {
+    background-color: lightgreen;
+}
+
+.correct-tiles-lw {
+    background-color: lightgreen;
+}
+
+.wrong-tiles-lw {
+    background-color: red;
+}
+
+.rotatecw {
+    -webkit-transition: -webkit-transform 0.5s linear;
+    -webkit-transform: rotate(90deg);
+}
+
+.rotateccw {
+    -webkit-transition: -webkit-transform 0.5s linear;
+    -webkit-transform: rotate(-90deg);
+}
+
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17pt;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    box-shadow: 2px 2px 2px 2px grey;
+
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+/* Begin Summary Page css */
+
+#container {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+#heading {
+    color: dodgerblue;
+    font-size: 40pt;
+    font-family: 'Lobster', cursive;
+}
+
+.heading2 {
+    font-size: 30px;
+    font-family: 'Lobster', cursive;
+}
+
+#restartBtn {
+    border: solid 1px black;
+    box-shadow: 2px 3px;
+    background-color: dodgerblue;
+    border-radius: 50px;
+    color: black;
+    margin-top: 50px;
+    height: 70px;
+    width: 200px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
+.textInput {
+    height: 30px;
+    width: 230px;
+    font-size: 25px;
+    text-align: center;
+}
+
+#submitBtn {
+    border: solid 1px black;
+    box-shadow: 2px 3px;
+    background-color: dodgerblue;
+    border-radius: 50px;
+    color: black;
+    margin-top: 50px;
+    height: 30px;
+    width: 70px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+#form {
+   display: block; 
+}
+
+#hiddenVal {
+    display: none;
+}
+
+
+#playerDiv {
+    display: inline-block;
+        margin: 0 auto;
+        padding-right: 20px;
+        padding-left: 20px;
+        /* border-right: 2px solid black; */
+        border-left: 2px solid black;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        margin-bottom: 50px;
+
+
+
+}
+
+#scoreDiv {
+    display: inline-block;
+        margin: 0 auto;
+        padding-left: 20px;
+        border-right: 2px solid black;
+        padding-right: 20px;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+        margin-bottom: 50px;
+
+
+
+
+
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+.heading3 {
+    font-size: 40px;
+    font-family: 'Lobster', cursive;
+}
+
+.heading4 {
+    font-size: 45px;
+    font-family: 'Lobster', cursive;
+}
+
+#board-container {
+    margin: 0 auto;
+    text-align: center;
+    background-color: aquamarine;
+    height: 100vh;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+#label {
+    font-size: 45px;
+    font-family: 'Lobster', cursive;
+    text-decoration: underline; 
+}
+
+#boardBody {
+    border: 10px solid dodgerblue;
+}

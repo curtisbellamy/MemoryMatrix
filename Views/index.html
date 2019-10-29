@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Memory Game</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Are you sure you want to terminate the game?</p><br>
+            <form action="/terminate" method="POST">
+                <input type="submit" value="Yes" class="terminateButtons" id="yesBtn"></input>
+            </form>
+                <button class="terminateButtons" id="noBtn">No</button>
+        </div>
+    </div>
+
+    <div id="container"></div>
+    <script src="/js/script.js"></script>
+    <script>
+        const game = StartGame(document.getElementById('container'));
+    </script>
+</body>
+
+</html>

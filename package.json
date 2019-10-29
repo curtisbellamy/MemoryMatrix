@@ -1,0 +1,18 @@
+{
+  "name": "comp4711_assignment1",
+  "version": "1.0.0",
+  "description": "memory matrix game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Curtis Bellamy",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "firebase": "^7.2.2",
+    "firebase-admin": "^8.6.1",
+    "mongodb": "^3.3.3"
+  }
+}

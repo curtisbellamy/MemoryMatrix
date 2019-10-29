@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game Summary</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script src="/js/summaryScript.js"></script>
+    <script src="/js/script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"></head>
+
+<body id="boardBody">
+    <div id="container">
+        <div id="game-container">
+            <h1 id="heading">Congratulations!</h1><br>
+            <h1 id="scoreResult" class="heading2">You scored <span id="resultSpan"></span>points</h1>
+
+            <form action="/" method="GET">
+                <button class="heading2" id="restartBtn">Restart Game</button><br><br><br><br>
+            </form>
+
+            <h2 class="heading2">Enter scoreboard name here:</h2>
+            <form id="form" action="/submitScore" method="POST">
+                <input name="username" class="textInput" type="text" placeholder="Username" required></input><br>
+                <input class="heading2" id="restartBtn" type="submit" value="Submit Score"></input>
+                <input id="hiddenVal" name="score"></input>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
