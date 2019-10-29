@@ -17,22 +17,28 @@ const firebaseConfig = {
     messagingSenderId: "9749002468",
     appId: "1:9749002468:web:1280e1e752dc38e84154f1",
     measurementId: "G-QFDSQYCNQJ"
-  };
-  firebase.initializeApp(firebaseConfig);
+};
+firebase.initializeApp(firebaseConfig);
 
-  // Get a reference to the database service
-  var db = firebase.database().ref('users');
+// Get a reference to the database service
+var db = firebase.database().ref('users');
 
-  const dbref = firebase.database().ref().child('users')
+const dbref = firebase.database().ref().child('users')
+
+const PORT = process.env.PORT || 3000
+
+app.listen(PORT, function () {
+    console.log('Server started on port 3000...');
+});
 
 
 
 
-var urlencodedParser = bodyParser.urlencoded({extended: false})
-app.use(bodyParser.urlencoded({extended: false}))
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/',function(req,res){
+app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/Views/index.html'));
     // res.sendFile(path.join(__dirname + '/Views/summary.html'));
     // res.sendFile(path.join(__dirname + '/Views/leaderboard.html'));
@@ -69,20 +75,20 @@ app.get('/getUsers', (req, res) => {
     //       let id = String(data.val().id)
     //       let score = String(data.val().score)
     //       obj[id] = score
-            
-    
+
+
     //     });
     // })
     dbref.on('value', getUserData);
 
-    function getUserData(data){
+    function getUserData(data) {
         var users = data.val()
         var keys = Object.keys(users)
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i]
-           //console.log(users[k].id + users[k].score)
-           var name = users[k].id
-           var score = users[k].score
+            //console.log(users[k].id + users[k].score)
+            var name = users[k].id
+            var score = users[k].score
             console.log(name + "       " + score)
             obj.push(name)
         }
@@ -108,14 +114,14 @@ app.get('/getScores', (req, res) => {
 
     dbref.on('value', getUserData);
 
-    function getUserData(data){
+    function getUserData(data) {
         var users = data.val()
         var keys = Object.keys(users)
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i]
-           //console.log(users[k].id + users[k].score)
-           var name = users[k].id
-           var score = users[k].score
+            //console.log(users[k].id + users[k].score)
+            var name = users[k].id
+            var score = users[k].score
             console.log(name + "       " + score)
             obj.push(score)
         }
@@ -127,13 +133,8 @@ app.get('/getScores', (req, res) => {
 
 
 
-app.post('/terminate', function(req, res) {
+app.post('/terminate', function (req, res) {
     res.sendFile(path.join(__dirname + '/Views/summary.html'));
 })
 
 app.use(express.static(path.join(__dirname, "public")));
-
-
-app.listen(3000)
-
-console.log('Running at Port 3000');
