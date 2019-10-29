@@ -231,7 +231,6 @@
     width: 200px;
     font-size: 25px;
     font-weight: bold;
-    margin-bottom: 30px;
 }
 
 
@@ -327,5 +326,5 @@ ul {
 
 #boardBody {
     border: 10px solid dodgerblue;
-    margin-bottom: 30px;
+    padding-bottom: 30px;
 }
