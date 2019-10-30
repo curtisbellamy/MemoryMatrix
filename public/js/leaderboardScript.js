@@ -19,7 +19,6 @@ window.onload = () => {
         newNode1.innerHTML = data[i].points;
         pl.appendChild(newNode)
         sl.appendChild(newNode1)
-        // console.log(data[0].id)
       }
     });
 

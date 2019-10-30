@@ -39,9 +39,9 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.get('/', function (req, res) {
-    res.sendFile(path.join(__dirname + '/Views/index.html'));
+    // res.sendFile(path.join(__dirname + '/Views/index.html'));
     // res.sendFile(path.join(__dirname + '/Views/summary.html'));
-    // res.sendFile(path.join(__dirname + '/Views/leaderboard.html'));
+    res.sendFile(path.join(__dirname + '/Views/leaderboard.html'));
 
 
 
@@ -84,7 +84,7 @@ app.get('/getUsers', (req, res) => {
     obj.sort(function(a, b){
         return b.points - a.points;
     });
-    userObj = obj.slice(0, 5)
+    userObj = obj.slice(0, 4)
     res.send(userObj)
 });
 
