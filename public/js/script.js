@@ -162,14 +162,16 @@ function StartGame(htmlContainer) {
             localStorage.setItem("score", String(score))
             updateGameStatusBar();
             tile.classList.add('correct-tiles-lw');
-            success.play()
+            if(allowSound)
+                success.play()
         } else {
             wrongClick = true;
             --score;
             localStorage.setItem("score", String(score))
             updateGameStatusBar();
             tile.classList.add('wrong-tiles-lw');
-            wrongTile.play()
+            if(allowSound)
+                wrongTile.play()
         }
     }
 
@@ -275,7 +277,8 @@ function StartGame(htmlContainer) {
 
 
     function increaseDifficulty() {
-        lvlUp.play()
+        if(allowSound)
+            lvlUp.play()
 
         // max 7x7
         if (row < 7 || col < 7) {
@@ -398,13 +401,6 @@ function StartGame(htmlContainer) {
         } else {
             btn.innerHTML = soundIcon;
             unmuteGame();
-        }
-    }
-
-    function playSoundEffect(sound) {
-        if (allowSound) {
-            sound.currentTime = 0;
-            sound.play();
         }
     }
 

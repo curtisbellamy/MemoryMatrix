@@ -84,7 +84,7 @@ app.get('/getUsers', (req, res) => {
     obj.sort(function(a, b){
         return b.points - a.points;
     });
-    userObj = obj.slice(0, 4)
+    userObj = obj.slice(0, 5)
     res.send(userObj)
 });
 

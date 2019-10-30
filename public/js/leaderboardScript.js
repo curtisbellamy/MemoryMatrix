@@ -15,7 +15,7 @@ window.onload = () => {
         var sl = document.getElementById("scoreList")
         var newNode = document.createElement("li")
         var newNode1 = document.createElement("li")
-        newNode.innerHTML = data[i].id;
+        newNode.innerHTML =`${i+1}.  ` + data[i].id;
         newNode1.innerHTML = data[i].points;
         pl.appendChild(newNode)
         sl.appendChild(newNode1)
