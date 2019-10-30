@@ -23,8 +23,8 @@
 
             <h2 class="heading2">Enter scoreboard name here:</h2>
             <form id="form" action="/submitScore" method="POST">
-                <input name="username" class="textInput" type="text" placeholder="Username" required></input><br>
-                <input class="heading2" id="restartBtn" type="submit" value="Submit Score"></input>
+                <input id="screenName" name="username" class="textInput" type="text" placeholder="Username" required></input><br>
+                <input class="heading2" id="restartBtn" type="submit" value="Submit Score" onclick="storeName()"></input>
                 <input id="hiddenVal" name="score"></input>
             </form>
         </div>

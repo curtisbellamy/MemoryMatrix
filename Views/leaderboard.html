@@ -8,13 +8,16 @@
     <title>Leaderboard</title>
     <script src="/js/leaderboardScript.js" defer></script>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet"></head>
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+</head>
 
 </head>
 
 <body id="boardBody">
     <div id="board-container">
+
         <h1 class="heading4">ScoreBoard</h1>
+        <h1>Nice try<span id="result1"></span>you scored<span id="result2"></span></h1>
         <div id="playerDiv">
             <h1 id="label">Username</h1>
             <ul class="heading3" id="playerList"></ul>
@@ -23,9 +26,6 @@
             <h1 id="label">Score</h1>
             <ul class="heading3" id="scoreList"></ul>
         </div>
-    
-
-
         <form method="GET" action="/">
             <input id="play" type="submit" value="Home">
         </form>

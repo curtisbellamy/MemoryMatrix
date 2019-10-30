@@ -2,37 +2,19 @@
 function StartGame(htmlContainer) {
     localStorage.setItem("score", "0")
 
+    let success;
+    let wrongTile;
+    let lvlUp;
+
     const gameJsFileName = '/js/script.js';
-    const SoundPaths = {
-        lvUp: '../Assets/sound/level-up.mp3',
-    };
 
     // icons
     const pauseIcon = `<i class="material-icons">pause</i>`;
     const resumeIcon = `<i class="material-icons">play_arrow</i>`;
     const soundIcon = `<i class="material-icons">volume_up</i>`;
     const mutedIcon = `<i class="material-icons">volume_off</i>`;
-    const terminateIcon = `<i class="material-icons">done_outline</i>`;
+    const terminateIcon = `<i class="material-icons">clear</i>`;
     const restartIcon = `<i class="material-icons" style="font-size:50px;">refresh</i>`;
-
-
-    const filePath = (function getFilePath() {
-        let scripts = document.getElementsByTagName('script');
-
-        for (let i = 0; i < scripts.length; ++i) {
-            const src = scripts[i].src;
-            const lastSlash = src.lastIndexOf('/');
-            if (src.substring(lastSlash+1) === gameJsFileName){
-                return path = src.substring(0, lastSlash+1);
-            }
-        }
-    })();
-
-
-
-    const Sound = {
-        lvUp: null, 
-    };
 
 
     (function createGame() {
@@ -78,8 +60,9 @@ function StartGame(htmlContainer) {
     }
 
     function initSounds() {
-        Sound.lvUp = new Audio(filePath + SoundPaths.lvUp);
-        console.log(filePath)
+        success = document.getElementById("success")
+        wrongTile = document.getElementById("wrongTile")
+        lvlUp = document.getElementById("levelUp")
     }
 
     let row, col, tilesTobeClicked, prevLvScore, score;
@@ -179,12 +162,14 @@ function StartGame(htmlContainer) {
             localStorage.setItem("score", String(score))
             updateGameStatusBar();
             tile.classList.add('correct-tiles-lw');
+            success.play()
         } else {
             wrongClick = true;
             --score;
             localStorage.setItem("score", String(score))
             updateGameStatusBar();
             tile.classList.add('wrong-tiles-lw');
+            wrongTile.play()
         }
     }
 
@@ -290,7 +275,7 @@ function StartGame(htmlContainer) {
 
 
     function increaseDifficulty() {
-        playSoundEffect(Sound.lvUp);
+        lvlUp.play()
 
         // max 7x7
         if (row < 7 || col < 7) {

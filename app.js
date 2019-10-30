@@ -66,50 +66,6 @@ app.post('/submitScore', (req, res) => {
 
 
 app.get('/getUsers', (req, res) => {
-    var obj = [];
-
-    // dbref.orderByValue().on("value", function(snapshot) {
-    //     snapshot.forEach(function(data) {
-
-    //       //console.log("The id is " + data.val().id + " score is " + data.val().score);
-    //       let id = String(data.val().id)
-    //       let score = String(data.val().score)
-    //       obj[id] = score
-
-
-    //     });
-    // })
-    dbref.on('value', getUserData);
-
-    function getUserData(data) {
-        var users = data.val()
-        var keys = Object.keys(users)
-        for (var i = 0; i < keys.length; i++) {
-            var k = keys[i]
-            //console.log(users[k].id + users[k].score)
-            var name = users[k].id
-            var score = users[k].score
-            console.log(name + "       " + score)
-            obj.push(name)
-        }
-    }
-    console.log(obj)
-    res.send(obj)
-
-    // firebase.database().ref('/users').on('value', function(snapshot) {
-    //     var obj = snapshot.exportVal()
-    //     //res.json(obj)
-    //     console.log(JSON.stringify(obj))
-    //     res.json(JSON.stringify(obj))
-    //     // res.json(obj)
-
-    // });
-
-    // res.json(objArr);
-});
-
-
-app.get('/getScores', (req, res) => {
     var obj = []
 
     dbref.on('value', getUserData);
@@ -119,17 +75,19 @@ app.get('/getScores', (req, res) => {
         var keys = Object.keys(users)
         for (var i = 0; i < keys.length; i++) {
             var k = keys[i]
-            //console.log(users[k].id + users[k].score)
             var name = users[k].id
             var score = users[k].score
-            console.log(name + "       " + score)
-            obj.push(score)
+            obj.push({id: name, points: score})
         }
     }
-    console.log(obj)
-    res.send(obj)
+    JSON.stringify(obj)
+    obj.sort(function(a, b){
+        return b.points - a.points;
+    });
+    userObj = obj.slice(0, 5)
+    res.send(userObj)
+});
 
-})
 
 
 
